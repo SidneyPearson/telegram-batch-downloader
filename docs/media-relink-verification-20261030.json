@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-30T20:27:09.312281+08:00",
+  "sqlite_check": "ok",
+  "relinked_and_checked": 81,
+  "only_final_path_changed": true,
+  "completed_paths_missing_or_wrong_size": [],
+  "current_video_statuses": {
+    "completed": 228,
+    "failed": 69,
+    "queued": 202,
+    "downloading": 1
+  },
+  "media_files_modified_by_relink": false,
+  "backup": "E:\\TelegramBatchDownloader\\state\\backups\\tasks-before-relink-20261030-202641-bd71f287.sqlite3"
+}

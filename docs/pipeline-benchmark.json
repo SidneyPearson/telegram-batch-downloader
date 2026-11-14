@@ -1,0 +1,15 @@
+{
+  "scope": "Offline 80ms-per-block latency simulation; NOT a Telegram/real proxy benchmark",
+  "bytes": 6291456,
+  "serial": {
+    "width": 1,
+    "seconds": 1.1175,
+    "sha256": "7edf7688a5cf8731932df66d4ac1509670da63bdbd90361b9da1d8b2928739a4"
+  },
+  "prefetch": {
+    "width": 2,
+    "seconds": 0.5708,
+    "sha256": "7edf7688a5cf8731932df66d4ac1509670da63bdbd90361b9da1d8b2928739a4"
+  },
+  "ratio": 1.958
+}

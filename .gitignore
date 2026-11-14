@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+state/
+downloads/
+qa/
+build/
+dist/
+*.spec
+instance.lock
+*.part

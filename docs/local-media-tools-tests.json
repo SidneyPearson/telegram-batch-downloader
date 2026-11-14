@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-30T20:15:42.442738+08:00",
+  "tests": 14,
+  "passed": 14,
+  "scope": "Offline fixtures only; audit is read-only; moved files checked by full SHA-256; backup preserves original paths; target active downloads and changed tasks rejected; unrelated downloads untouched; multi-row failure rolled back.",
+  "suites": {
+    "tests.test_audit_downloads": 7,
+    "tests.test_relink_downloads": 7
+  },
+  "main_executable_changed": false
+}

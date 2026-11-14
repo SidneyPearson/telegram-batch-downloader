@@ -1,0 +1,14 @@
+{
+  "version": "0.1.2",
+  "at": "2026-10-30T13:35:53.221164+00:00",
+  "python": "3.12.14",
+  "platform": "Windows-10-10.0.19044-SP0",
+  "tests": 88,
+  "passed": 88,
+  "errors": 0,
+  "failures": 0,
+  "skipped": 0,
+  "seconds": 26.438,
+  "scope": "Offline simulated Telegram transport; no live login/channel verification",
+  "details": []
+}

@@ -1,0 +1,37 @@
+{
+  "version": "0.1.2",
+  "at": "2026-10-30T13:38:17.971834+00:00",
+  "platform": "Windows-10-10.0.19044-SP0",
+  "build_tool": "PyInstaller 6.22.3, onedir, windowed, no UPX",
+  "exe_sha256": "036a57d3f58c504f7cc12bc6f3772083099691358cc5f904e1b74d316ecd5ef1",
+  "exe_bytes": 5486441,
+  "startup": {
+    "observed_window_title": "Telegram 本地批量下载器 v0.1.2 · 离线演示",
+    "checked": true,
+    "data_directory": "isolated empty QA directory",
+    "telegram_connection_attempted": false,
+    "method": "Window title supplied after separate Windows inventory/startup inspection"
+  },
+  "source_sha256": {
+    "app.py": "41f0b5068e9c3cc0db97b3d46fd96d20e5223d037118ffafe86043c1904128d0",
+    "tmd\\demo.py": "46276e4e4c4590cd9b18fbfbae957dcaf4e59fdf6909e3b90e432e711da47fc9",
+    "tmd\\engine.py": "2a76f1f32f502fe3be4266651d210e8a40d87fac08913030e2e0d99aacc35033",
+    "tmd\\model.py": "c0085515673370a49e3969554aae86cdbe486c82525e9f562609f5ffcca692b1",
+    "tmd\\pipeline.py": "fbeb4ea9e7fa1c379ea5cbeb64ae65519bb1ab21580157b2c3ed48ba1b600089",
+    "tmd\\secure.py": "91ea26e75cd0c7801e5d0dfe96c1c74804c4a825c358a697b13c579fbea3dcc4",
+    "tmd\\storage.py": "4e861c75d271f11ff7242ddd652686c1f7d90fc79ad203a318f6bad16e7a3e2c",
+    "tmd\\transport.py": "e4e9d70fab67a7a5c5f0c2aa6440d08e6fe9075565142550259d9478a11c2227",
+    "tmd\\__init__.py": "62fb98cd69cab6a05bf88a86f0702efa7848600b208fd56673f6fda3bbcefa3b"
+  },
+  "tests": {
+    "tests": 88,
+    "passed": 88,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "at": "2026-10-30T13:35:53.221164+00:00"
+  },
+  "live_account_tested": false,
+  "restricted_channel_tested": false,
+  "external_screenshot_qa": "not completed: app access approval timed out"
+}

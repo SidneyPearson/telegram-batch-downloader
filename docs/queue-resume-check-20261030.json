@@ -1,0 +1,69 @@
+{
+  "at": "2026-10-30T21:41:15.448203+08:00",
+  "version": "0.1.2",
+  "actual_queue_read_only": true,
+  "next_queued_videos_with_new_scheduler": [
+    {
+      "message_id": 14993,
+      "checkpoint_bytes": 120586240,
+      "size": 134393749
+    },
+    {
+      "message_id": 14462,
+      "checkpoint_bytes": 144703488,
+      "size": 217107006
+    },
+    {
+      "message_id": 14469,
+      "checkpoint_bytes": 81264640,
+      "size": 208529996
+    },
+    {
+      "message_id": 14850,
+      "checkpoint_bytes": 62390272,
+      "size": 193617848
+    },
+    {
+      "message_id": 14992,
+      "checkpoint_bytes": 31457280,
+      "size": 137562978
+    },
+    {
+      "message_id": 14818,
+      "checkpoint_bytes": 36700160,
+      "size": 180781963
+    },
+    {
+      "message_id": 15046,
+      "checkpoint_bytes": 25690112,
+      "size": 149990990
+    },
+    {
+      "message_id": 14444,
+      "checkpoint_bytes": 0,
+      "size": 220059693
+    }
+  ],
+  "failed_part_tasks_requiring_manual_retry": [
+    {
+      "message_id": 14819,
+      "code": "NETWORK",
+      "checkpoint_bytes": 153092096
+    }
+  ],
+  "packages": [
+    {
+      "file": "Telegram-Batch-Downloader-Local-v0.1.2-Windows-x64.zip",
+      "zip_crc_ok": true,
+      "private_runtime_content": false,
+      "files": 1020
+    },
+    {
+      "file": "Telegram-Batch-Downloader-Local-v0.1.2-Source.zip",
+      "zip_crc_ok": true,
+      "private_runtime_content": false,
+      "files": 62
+    }
+  ],
+  "running_installation_modified": false
+}

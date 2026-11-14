@@ -1,0 +1,1084 @@
+{
+  "created_at": "2026-11-08T22:07:08.213635+08:00",
+  "database": "E:\\TelegramBatchDownloader\\state\\tasks.sqlite3",
+  "targets": 153,
+  "by_previous_status": {
+    "completed": 121,
+    "queued": 32
+  },
+  "items": [
+    {
+      "message_id": 14661,
+      "kind": "image",
+      "size": 189506,
+      "date": "2026-09-19T12:00:23+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14654,
+      "kind": "image",
+      "size": 153330,
+      "date": "2026-09-15T02:47:38+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14570,
+      "kind": "image",
+      "size": 217842,
+      "date": "2026-09-10T16:00:45+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14666,
+      "kind": "video",
+      "size": 113430748,
+      "date": "2026-09-19T12:00:24+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14665,
+      "kind": "video",
+      "size": 126626203,
+      "date": "2026-09-19T12:00:23+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14664,
+      "kind": "video",
+      "size": 115962873,
+      "date": "2026-09-19T12:00:23+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14663,
+      "kind": "video",
+      "size": 125168048,
+      "date": "2026-09-19T12:00:23+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14662,
+      "kind": "video",
+      "size": 114853971,
+      "date": "2026-09-19T12:00:23+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14660,
+      "kind": "video",
+      "size": 103162845,
+      "date": "2026-09-15T02:47:39+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14659,
+      "kind": "video",
+      "size": 124596752,
+      "date": "2026-09-15T02:47:39+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14658,
+      "kind": "video",
+      "size": 102781200,
+      "date": "2026-09-15T02:47:39+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14657,
+      "kind": "video",
+      "size": 65756593,
+      "date": "2026-09-15T02:47:38+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14656,
+      "kind": "video",
+      "size": 66234720,
+      "date": "2026-09-15T02:47:38+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14655,
+      "kind": "video",
+      "size": 116038554,
+      "date": "2026-09-15T02:47:38+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14575,
+      "kind": "video",
+      "size": 108860654,
+      "date": "2026-09-10T16:00:45+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14574,
+      "kind": "video",
+      "size": 93797525,
+      "date": "2026-09-10T16:00:45+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14573,
+      "kind": "video",
+      "size": 97933910,
+      "date": "2026-09-10T16:00:45+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14572,
+      "kind": "video",
+      "size": 98503328,
+      "date": "2026-09-10T16:00:45+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14571,
+      "kind": "video",
+      "size": 94622601,
+      "date": "2026-09-10T16:00:45+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14569,
+      "kind": "video",
+      "size": 110016628,
+      "date": "2026-09-05T13:44:55+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14568,
+      "kind": "video",
+      "size": 136009313,
+      "date": "2026-09-05T13:44:55+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14567,
+      "kind": "video",
+      "size": 110396157,
+      "date": "2026-09-05T13:44:55+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14566,
+      "kind": "video",
+      "size": 110680146,
+      "date": "2026-09-05T13:44:55+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14491,
+      "kind": "video",
+      "size": 197244692,
+      "date": "2026-08-31T13:56:56+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14490,
+      "kind": "video",
+      "size": 185924148,
+      "date": "2026-08-31T13:56:56+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14489,
+      "kind": "video",
+      "size": 184800475,
+      "date": "2026-08-31T13:56:56+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14488,
+      "kind": "video",
+      "size": 186947230,
+      "date": "2026-08-31T13:56:56+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14487,
+      "kind": "video",
+      "size": 219365387,
+      "date": "2026-08-31T13:56:56+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14457,
+      "kind": "video",
+      "size": 142802404,
+      "date": "2026-08-25T07:45:36+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14456,
+      "kind": "video",
+      "size": 146533711,
+      "date": "2026-08-25T07:45:36+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14455,
+      "kind": "video",
+      "size": 144506852,
+      "date": "2026-08-25T07:45:36+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14454,
+      "kind": "video",
+      "size": 146888889,
+      "date": "2026-08-25T07:45:36+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14453,
+      "kind": "video",
+      "size": 142160020,
+      "date": "2026-08-25T07:45:36+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14423,
+      "kind": "video",
+      "size": 149405257,
+      "date": "2026-08-20T14:10:49+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14422,
+      "kind": "video",
+      "size": 149135658,
+      "date": "2026-08-20T14:10:49+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14421,
+      "kind": "video",
+      "size": 149220800,
+      "date": "2026-08-20T14:10:49+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14420,
+      "kind": "video",
+      "size": 148140890,
+      "date": "2026-08-20T14:10:49+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14419,
+      "kind": "video",
+      "size": 150787821,
+      "date": "2026-08-20T14:10:49+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14397,
+      "kind": "video",
+      "size": 108989814,
+      "date": "2026-08-16T15:33:36+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14396,
+      "kind": "video",
+      "size": 104238079,
+      "date": "2026-08-16T15:33:36+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14395,
+      "kind": "video",
+      "size": 154722865,
+      "date": "2026-08-16T15:33:36+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14394,
+      "kind": "video",
+      "size": 155304525,
+      "date": "2026-08-16T15:33:36+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14393,
+      "kind": "video",
+      "size": 105547321,
+      "date": "2026-08-16T15:33:36+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14391,
+      "kind": "video",
+      "size": 109400893,
+      "date": "2026-08-16T15:32:04+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14390,
+      "kind": "video",
+      "size": 100481306,
+      "date": "2026-08-16T15:32:04+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14389,
+      "kind": "video",
+      "size": 150443672,
+      "date": "2026-08-16T15:32:04+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14388,
+      "kind": "video",
+      "size": 152425510,
+      "date": "2026-08-16T15:32:04+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14387,
+      "kind": "video",
+      "size": 146305258,
+      "date": "2026-08-16T15:32:04+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14358,
+      "kind": "video",
+      "size": 151828624,
+      "date": "2026-08-12T09:56:10+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14357,
+      "kind": "video",
+      "size": 156621484,
+      "date": "2026-08-12T09:56:10+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14356,
+      "kind": "video",
+      "size": 147840563,
+      "date": "2026-08-12T09:56:10+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14355,
+      "kind": "video",
+      "size": 155622890,
+      "date": "2026-08-12T09:56:10+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14354,
+      "kind": "video",
+      "size": 147908776,
+      "date": "2026-08-12T09:56:10+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14353,
+      "kind": "video",
+      "size": 152069311,
+      "date": "2026-08-12T09:56:10+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14351,
+      "kind": "video",
+      "size": 152203857,
+      "date": "2026-08-12T09:53:59+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14350,
+      "kind": "video",
+      "size": 149740937,
+      "date": "2026-08-12T09:53:59+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14349,
+      "kind": "video",
+      "size": 148526832,
+      "date": "2026-08-12T09:53:58+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14348,
+      "kind": "video",
+      "size": 152953920,
+      "date": "2026-08-12T09:53:58+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14347,
+      "kind": "video",
+      "size": 148887136,
+      "date": "2026-08-12T09:53:58+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14346,
+      "kind": "video",
+      "size": 144960047,
+      "date": "2026-08-12T09:53:58+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14296,
+      "kind": "video",
+      "size": 142064095,
+      "date": "2026-08-06T13:31:16+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14295,
+      "kind": "video",
+      "size": 145455053,
+      "date": "2026-08-06T13:31:16+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14294,
+      "kind": "video",
+      "size": 139748977,
+      "date": "2026-08-06T13:31:16+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14293,
+      "kind": "video",
+      "size": 140561821,
+      "date": "2026-08-06T13:31:16+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14292,
+      "kind": "video",
+      "size": 138896596,
+      "date": "2026-08-06T13:31:16+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14281,
+      "kind": "video",
+      "size": 220221210,
+      "date": "2026-08-03T02:22:51+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14198,
+      "kind": "video",
+      "size": 139484183,
+      "date": "2026-07-28T12:36:38+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14263,
+      "kind": "video",
+      "size": 152291635,
+      "date": "2026-08-03T02:18:23+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14152,
+      "kind": "video",
+      "size": 164398273,
+      "date": "2026-07-26T13:38:58+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14165,
+      "kind": "video",
+      "size": 165827317,
+      "date": "2026-07-26T13:41:50+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14250,
+      "kind": "video",
+      "size": 284843013,
+      "date": "2026-07-31T14:54:08+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14146,
+      "kind": "video",
+      "size": 149307010,
+      "date": "2026-07-26T13:35:29+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14147,
+      "kind": "video",
+      "size": 145097517,
+      "date": "2026-07-26T13:35:29+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14148,
+      "kind": "video",
+      "size": 147804363,
+      "date": "2026-07-26T13:35:29+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14149,
+      "kind": "video",
+      "size": 148769616,
+      "date": "2026-07-26T13:35:29+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14150,
+      "kind": "video",
+      "size": 148604711,
+      "date": "2026-07-26T13:35:29+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14153,
+      "kind": "video",
+      "size": 165425611,
+      "date": "2026-07-26T13:38:58+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14154,
+      "kind": "video",
+      "size": 166195836,
+      "date": "2026-07-26T13:38:58+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14155,
+      "kind": "video",
+      "size": 176077933,
+      "date": "2026-07-26T13:38:58+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14156,
+      "kind": "video",
+      "size": 180134473,
+      "date": "2026-07-26T13:38:58+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14157,
+      "kind": "video",
+      "size": 166891536,
+      "date": "2026-07-26T13:38:58+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14158,
+      "kind": "video",
+      "size": 175289670,
+      "date": "2026-07-26T13:38:58+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14159,
+      "kind": "video",
+      "size": 162714322,
+      "date": "2026-07-26T13:38:58+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14162,
+      "kind": "video",
+      "size": 166193950,
+      "date": "2026-07-26T13:41:49+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14163,
+      "kind": "video",
+      "size": 166459512,
+      "date": "2026-07-26T13:41:50+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14164,
+      "kind": "video",
+      "size": 168537172,
+      "date": "2026-07-26T13:41:50+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14166,
+      "kind": "video",
+      "size": 184616166,
+      "date": "2026-07-26T13:41:50+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14167,
+      "kind": "video",
+      "size": 165044081,
+      "date": "2026-07-26T13:41:50+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14168,
+      "kind": "video",
+      "size": 166712345,
+      "date": "2026-07-26T13:41:50+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14190,
+      "kind": "video",
+      "size": 138633749,
+      "date": "2026-07-28T12:34:32+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14191,
+      "kind": "video",
+      "size": 139459635,
+      "date": "2026-07-28T12:34:32+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14192,
+      "kind": "video",
+      "size": 139165016,
+      "date": "2026-07-28T12:34:32+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14193,
+      "kind": "video",
+      "size": 153328553,
+      "date": "2026-07-28T12:34:32+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14194,
+      "kind": "video",
+      "size": 141653474,
+      "date": "2026-07-28T12:34:32+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14196,
+      "kind": "video",
+      "size": 141136075,
+      "date": "2026-07-28T12:36:38+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14197,
+      "kind": "video",
+      "size": 138022490,
+      "date": "2026-07-28T12:36:38+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14199,
+      "kind": "video",
+      "size": 135207762,
+      "date": "2026-07-28T12:36:38+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14200,
+      "kind": "video",
+      "size": 140979468,
+      "date": "2026-07-28T12:36:38+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14201,
+      "kind": "video",
+      "size": 159637735,
+      "date": "2026-07-28T12:36:38+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14565,
+      "kind": "image",
+      "size": 211412,
+      "date": "2026-09-05T13:44:55+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14486,
+      "kind": "image",
+      "size": 172318,
+      "date": "2026-08-31T13:56:55+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14452,
+      "kind": "image",
+      "size": 226790,
+      "date": "2026-08-25T07:45:36+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14418,
+      "kind": "image",
+      "size": 162504,
+      "date": "2026-08-20T14:10:48+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14398,
+      "kind": "image",
+      "size": 120576,
+      "date": "2026-08-16T15:33:36+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14392,
+      "kind": "image",
+      "size": 197525,
+      "date": "2026-08-16T15:32:04+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14352,
+      "kind": "image",
+      "size": 193030,
+      "date": "2026-08-12T09:56:10+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14345,
+      "kind": "image",
+      "size": 196721,
+      "date": "2026-08-12T09:53:58+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14297,
+      "kind": "image",
+      "size": 209798,
+      "date": "2026-08-06T13:31:16+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14264,
+      "kind": "image",
+      "size": 176701,
+      "date": "2026-08-03T02:18:23+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14202,
+      "kind": "image",
+      "size": 213857,
+      "date": "2026-07-28T12:36:38+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14195,
+      "kind": "image",
+      "size": 224968,
+      "date": "2026-07-28T12:34:32+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14170,
+      "kind": "image",
+      "size": 129092,
+      "date": "2026-07-26T13:41:50+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14169,
+      "kind": "image",
+      "size": 114331,
+      "date": "2026-07-26T13:41:50+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14161,
+      "kind": "image",
+      "size": 115121,
+      "date": "2026-07-26T13:38:58+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14160,
+      "kind": "image",
+      "size": 206190,
+      "date": "2026-07-26T13:38:58+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14151,
+      "kind": "image",
+      "size": 223491,
+      "date": "2026-07-26T13:35:30+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14117,
+      "kind": "image",
+      "size": 221979,
+      "date": "2026-07-21T11:39:10+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14116,
+      "kind": "image",
+      "size": 230054,
+      "date": "2026-07-21T11:39:10+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14109,
+      "kind": "image",
+      "size": 179786,
+      "date": "2026-07-21T11:37:07+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14108,
+      "kind": "image",
+      "size": 141443,
+      "date": "2026-07-21T11:37:07+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 14100,
+      "kind": "image",
+      "size": 179565,
+      "date": "2026-07-21T11:34:50+00:00",
+      "previous_status": "completed"
+    },
+    {
+      "message_id": 15076,
+      "kind": "image",
+      "size": 203237,
+      "date": "2026-10-30T15:36:19+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 15075,
+      "kind": "video",
+      "size": 51734823,
+      "date": "2026-10-30T15:36:19+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 15074,
+      "kind": "video",
+      "size": 109157438,
+      "date": "2026-10-30T15:36:19+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 15072,
+      "kind": "video",
+      "size": 99727570,
+      "date": "2026-10-30T15:36:19+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 15071,
+      "kind": "video",
+      "size": 93600659,
+      "date": "2026-10-30T15:36:19+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 15070,
+      "kind": "video",
+      "size": 59844068,
+      "date": "2026-10-30T15:36:19+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 15068,
+      "kind": "video",
+      "size": 91668478,
+      "date": "2026-10-25T11:16:19+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 15067,
+      "kind": "video",
+      "size": 100221697,
+      "date": "2026-10-25T11:16:19+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 15066,
+      "kind": "video",
+      "size": 96266927,
+      "date": "2026-10-25T11:16:19+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 15065,
+      "kind": "video",
+      "size": 100379887,
+      "date": "2026-10-25T11:16:19+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 15064,
+      "kind": "image",
+      "size": 253035,
+      "date": "2026-10-25T11:16:19+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 14897,
+      "kind": "video",
+      "size": 103298528,
+      "date": "2026-10-13T16:05:30+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 14896,
+      "kind": "video",
+      "size": 112698046,
+      "date": "2026-10-13T16:05:30+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 14895,
+      "kind": "video",
+      "size": 109005207,
+      "date": "2026-10-13T16:05:30+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 14894,
+      "kind": "video",
+      "size": 104510115,
+      "date": "2026-10-13T16:05:30+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 14893,
+      "kind": "video",
+      "size": 104195021,
+      "date": "2026-10-13T16:05:30+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 14892,
+      "kind": "video",
+      "size": 106736128,
+      "date": "2026-10-13T16:05:30+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 14891,
+      "kind": "video",
+      "size": 107303169,
+      "date": "2026-10-13T16:05:30+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 14890,
+      "kind": "image",
+      "size": 162702,
+      "date": "2026-10-13T16:05:30+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 14804,
+      "kind": "image",
+      "size": 225450,
+      "date": "2026-09-28T11:56:56+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 14803,
+      "kind": "video",
+      "size": 131429361,
+      "date": "2026-09-28T11:56:56+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 14802,
+      "kind": "video",
+      "size": 131746351,
+      "date": "2026-09-28T11:56:56+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 14801,
+      "kind": "video",
+      "size": 128173764,
+      "date": "2026-09-28T11:56:55+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 14800,
+      "kind": "video",
+      "size": 133344194,
+      "date": "2026-09-28T11:56:55+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 14799,
+      "kind": "video",
+      "size": 129840683,
+      "date": "2026-09-28T11:56:55+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 14713,
+      "kind": "video",
+      "size": 128900819,
+      "date": "2026-09-23T09:39:53+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 14712,
+      "kind": "video",
+      "size": 130157078,
+      "date": "2026-09-23T09:39:52+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 14711,
+      "kind": "video",
+      "size": 131401334,
+      "date": "2026-09-23T09:39:52+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 14710,
+      "kind": "video",
+      "size": 132967817,
+      "date": "2026-09-23T09:39:52+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 14709,
+      "kind": "video",
+      "size": 128047393,
+      "date": "2026-09-23T09:39:52+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 14708,
+      "kind": "video",
+      "size": 131632213,
+      "date": "2026-09-23T09:39:52+00:00",
+      "previous_status": "queued"
+    },
+    {
+      "message_id": 14707,
+      "kind": "image",
+      "size": 197326,
+      "date": "2026-09-23T09:39:52+00:00",
+      "previous_status": "queued"
+    }
+  ],
+  "backup": "E:\\TelegramBatchDownloader\\state\\backups\\tasks-before-skip-20261108-220708-528a3775.sqlite3",
+  "applied": 153
+}

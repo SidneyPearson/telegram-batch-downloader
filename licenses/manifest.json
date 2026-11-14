@@ -1,0 +1,100 @@
+[
+  {
+    "package": "Telethon",
+    "version": "1.45.0",
+    "license": "MIT",
+    "files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "package": "PySocks",
+    "version": "1.7.1",
+    "license": "BSD",
+    "files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "package": "cryptg",
+    "version": "0.6.0",
+    "license": "CC0",
+    "files": [
+      "LICENSE.txt"
+    ]
+  },
+  {
+    "package": "pyaes",
+    "version": "1.6.1",
+    "license": "License :: OSI Approved :: MIT License",
+    "files": [
+      "LICENSE.txt"
+    ]
+  },
+  {
+    "package": "rsa",
+    "version": "4.9.1",
+    "license": "Apache-2.0",
+    "files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "package": "pyasn1",
+    "version": "0.6.4",
+    "license": "BSD-2-Clause",
+    "files": [
+      "LICENSE.rst"
+    ]
+  },
+  {
+    "package": "PyInstaller",
+    "version": "6.22.3",
+    "license": "GPLv2-or-later with a special exception which allows to use PyInstaller to build and distribute non-free programs (including commercial ones)",
+    "files": [
+      "COPYING.txt"
+    ]
+  },
+  {
+    "package": "pyinstaller-hooks-contrib",
+    "version": "2026.9",
+    "license": "",
+    "files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "package": "altgraph",
+    "version": "0.17.5",
+    "license": "MIT",
+    "files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "package": "packaging",
+    "version": "26.3",
+    "license": "Apache-2.0 OR BSD-2-Clause",
+    "files": [
+      "LICENSE",
+      "LICENSE.APACHE",
+      "LICENSE.BSD"
+    ]
+  },
+  {
+    "package": "pefile",
+    "version": "2024.8.26",
+    "license": "MIT",
+    "files": [
+      "LICENSE"
+    ]
+  },
+  {
+    "package": "pywin32-ctypes",
+    "version": "0.2.3",
+    "license": "BSD-3-Clause",
+    "files": [
+      "LICENSE.txt"
+    ]
+  }
+]

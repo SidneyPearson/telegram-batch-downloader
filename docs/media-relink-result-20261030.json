@@ -1,0 +1,413 @@
+{
+  "relinked": 81,
+  "backup": "E:\\TelegramBatchDownloader\\state\\backups\\tasks-before-relink-20261030-202641-bd71f287.sqlite3",
+  "changes": [
+    {
+      "message_id": 15068,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15068_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\1\\jiepairewu_15068_20261025.mp4"
+    },
+    {
+      "message_id": 15067,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15067_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\1\\jiepairewu_15067_20261025.mp4"
+    },
+    {
+      "message_id": 15065,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15065_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\1\\jiepairewu_15065_20261025.mp4"
+    },
+    {
+      "message_id": 15057,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15057_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\2\\jiepairewu_15057_20261025.mp4"
+    },
+    {
+      "message_id": 15056,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15056_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\2\\jiepairewu_15056_20261025.mp4"
+    },
+    {
+      "message_id": 15055,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15055_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\2\\jiepairewu_15055_20261025.mp4"
+    },
+    {
+      "message_id": 15054,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15054_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\2\\jiepairewu_15054_20261025.mp4"
+    },
+    {
+      "message_id": 15047,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15047_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\3\\jiepairewu_15047_20261025.mp4"
+    },
+    {
+      "message_id": 15045,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15045_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\3\\jiepairewu_15045_20261025.mp4"
+    },
+    {
+      "message_id": 15044,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15044_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\3\\jiepairewu_15044_20261025.mp4"
+    },
+    {
+      "message_id": 15037,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15037_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\4\\jiepairewu_15037_20261025.mp4"
+    },
+    {
+      "message_id": 15036,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15036_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\4\\jiepairewu_15036_20261025.mp4"
+    },
+    {
+      "message_id": 15035,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15035_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\4\\jiepairewu_15035_20261025.mp4"
+    },
+    {
+      "message_id": 15034,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15034_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\4\\jiepairewu_15034_20261025.mp4"
+    },
+    {
+      "message_id": 15028,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15028_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\5\\jiepairewu_15028_20261025.mp4"
+    },
+    {
+      "message_id": 15027,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15027_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\5\\jiepairewu_15027_20261025.mp4"
+    },
+    {
+      "message_id": 15026,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15026_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\5\\jiepairewu_15026_20261025.mp4"
+    },
+    {
+      "message_id": 15025,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15025_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\5\\jiepairewu_15025_20261025.mp4"
+    },
+    {
+      "message_id": 15018,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15018_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\7\\jiepairewu_15018_20261025.mp4"
+    },
+    {
+      "message_id": 15017,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15017_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\7\\jiepairewu_15017_20261025.mp4"
+    },
+    {
+      "message_id": 15016,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15016_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\7\\jiepairewu_15016_20261025.mp4"
+    },
+    {
+      "message_id": 15015,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15015_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\7\\jiepairewu_15015_20261025.mp4"
+    },
+    {
+      "message_id": 15008,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15008_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\6\\jiepairewu_15008_20261025.mp4"
+    },
+    {
+      "message_id": 15007,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15007_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\6\\jiepairewu_15007_20261025.mp4"
+    },
+    {
+      "message_id": 15006,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15006_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\6\\jiepairewu_15006_20261025.mp4"
+    },
+    {
+      "message_id": 15005,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15005_20261025.mp4",
+      "new_path": "F:\\魔镜摄影\\6\\jiepairewu_15005_20261025.mp4"
+    },
+    {
+      "message_id": 15003,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15003_20261021.mp4",
+      "new_path": "F:\\魔镜摄影\\8\\jiepairewu_15003_20261021.mp4"
+    },
+    {
+      "message_id": 15002,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15002_20261021.mp4",
+      "new_path": "F:\\魔镜摄影\\8\\jiepairewu_15002_20261021.mp4"
+    },
+    {
+      "message_id": 15001,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15001_20261021.mp4",
+      "new_path": "F:\\魔镜摄影\\8\\jiepairewu_15001_20261021.mp4"
+    },
+    {
+      "message_id": 15000,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_15000_20261021.mp4",
+      "new_path": "F:\\魔镜摄影\\8\\jiepairewu_15000_20261021.mp4"
+    },
+    {
+      "message_id": 14994,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14994_20261021.mp4",
+      "new_path": "F:\\魔镜摄影\\9\\jiepairewu_14994_20261021.mp4"
+    },
+    {
+      "message_id": 14851,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14851_20261008.mp4",
+      "new_path": "F:\\魔镜摄影\\9\\jiepairewu_14851_20261008.mp4"
+    },
+    {
+      "message_id": 14849,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14849_20261008.mp4",
+      "new_path": "F:\\魔镜摄影\\9\\jiepairewu_14849_20261008.mp4"
+    },
+    {
+      "message_id": 14848,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14848_20261008.mp4",
+      "new_path": "F:\\魔镜摄影\\9\\jiepairewu_14848_20261008.mp4"
+    },
+    {
+      "message_id": 14847,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14847_20261008.mp4",
+      "new_path": "F:\\魔镜摄影\\9\\jiepairewu_14847_20261008.mp4"
+    },
+    {
+      "message_id": 14836,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14836_20261002.mp4",
+      "new_path": "F:\\魔镜摄影\\10\\jiepairewu_14836_20261002.mp4"
+    },
+    {
+      "message_id": 14835,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14835_20261002.mp4",
+      "new_path": "F:\\魔镜摄影\\10\\jiepairewu_14835_20261002.mp4"
+    },
+    {
+      "message_id": 14834,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14834_20261002.mp4",
+      "new_path": "F:\\魔镜摄影\\10\\jiepairewu_14834_20261002.mp4"
+    },
+    {
+      "message_id": 14833,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14833_20261002.mp4",
+      "new_path": "F:\\魔镜摄影\\10\\jiepairewu_14833_20261002.mp4"
+    },
+    {
+      "message_id": 14832,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14832_20261002.mp4",
+      "new_path": "F:\\魔镜摄影\\11\\jiepairewu_14832_20261002.mp4"
+    },
+    {
+      "message_id": 14831,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14831_20261002.mp4",
+      "new_path": "F:\\魔镜摄影\\11\\jiepairewu_14831_20261002.mp4"
+    },
+    {
+      "message_id": 14830,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14830_20261002.mp4",
+      "new_path": "F:\\魔镜摄影\\11\\jiepairewu_14830_20261002.mp4"
+    },
+    {
+      "message_id": 14817,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14817_20261002.mp4",
+      "new_path": "F:\\魔镜摄影\\12\\jiepairewu_14817_20261002.mp4"
+    },
+    {
+      "message_id": 14816,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14816_20261002.mp4",
+      "new_path": "F:\\魔镜摄影\\12\\jiepairewu_14816_20261002.mp4"
+    },
+    {
+      "message_id": 14815,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14815_20261002.mp4",
+      "new_path": "F:\\魔镜摄影\\12\\jiepairewu_14815_20261002.mp4"
+    },
+    {
+      "message_id": 14813,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14813_20261002.mp4",
+      "new_path": "F:\\魔镜摄影\\13\\jiepairewu_14813_20261002.mp4"
+    },
+    {
+      "message_id": 14812,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14812_20261002.mp4",
+      "new_path": "F:\\魔镜摄影\\13\\jiepairewu_14812_20261002.mp4"
+    },
+    {
+      "message_id": 14811,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14811_20261002.mp4",
+      "new_path": "F:\\魔镜摄影\\13\\jiepairewu_14811_20261002.mp4"
+    },
+    {
+      "message_id": 14810,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14810_20261002.mp4",
+      "new_path": "F:\\魔镜摄影\\13\\jiepairewu_14810_20261002.mp4"
+    },
+    {
+      "message_id": 14803,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14803_20260928.mp4",
+      "new_path": "F:\\魔镜摄影\\14\\jiepairewu_14803_20260928.mp4"
+    },
+    {
+      "message_id": 14802,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14802_20260928.mp4",
+      "new_path": "F:\\魔镜摄影\\14\\jiepairewu_14802_20260928.mp4"
+    },
+    {
+      "message_id": 14801,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14801_20260928.mp4",
+      "new_path": "F:\\魔镜摄影\\14\\jiepairewu_14801_20260928.mp4"
+    },
+    {
+      "message_id": 14800,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14800_20260928.mp4",
+      "new_path": "F:\\魔镜摄影\\14\\jiepairewu_14800_20260928.mp4"
+    },
+    {
+      "message_id": 14799,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14799_20260928.mp4",
+      "new_path": "F:\\魔镜摄影\\14\\jiepairewu_14799_20260928.mp4"
+    },
+    {
+      "message_id": 14793,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14793_20260928.mp4",
+      "new_path": "F:\\魔镜摄影\\18\\jiepairewu_14793_20260928.mp4"
+    },
+    {
+      "message_id": 14792,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14792_20260928.mp4",
+      "new_path": "F:\\魔镜摄影\\18\\jiepairewu_14792_20260928.mp4"
+    },
+    {
+      "message_id": 14791,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14791_20260928.mp4",
+      "new_path": "F:\\魔镜摄影\\18\\jiepairewu_14791_20260928.mp4"
+    },
+    {
+      "message_id": 14790,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14790_20260928.mp4",
+      "new_path": "F:\\魔镜摄影\\18\\jiepairewu_14790_20260928.mp4"
+    },
+    {
+      "message_id": 14789,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14789_20260928.mp4",
+      "new_path": "F:\\魔镜摄影\\18\\jiepairewu_14789_20260928.mp4"
+    },
+    {
+      "message_id": 14783,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14783_20260928.mp4",
+      "new_path": "F:\\魔镜摄影\\19\\jiepairewu_14783_20260928.mp4"
+    },
+    {
+      "message_id": 14782,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14782_20260928.mp4",
+      "new_path": "F:\\魔镜摄影\\19\\jiepairewu_14782_20260928.mp4"
+    },
+    {
+      "message_id": 14781,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14781_20260928.mp4",
+      "new_path": "F:\\魔镜摄影\\19\\jiepairewu_14781_20260928.mp4"
+    },
+    {
+      "message_id": 14780,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14780_20260928.mp4",
+      "new_path": "F:\\魔镜摄影\\19\\jiepairewu_14780_20260928.mp4"
+    },
+    {
+      "message_id": 14779,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14779_20260928.mp4",
+      "new_path": "F:\\魔镜摄影\\19\\jiepairewu_14779_20260928.mp4"
+    },
+    {
+      "message_id": 14773,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14773_20260928.mp4",
+      "new_path": "F:\\魔镜摄影\\20\\jiepairewu_14773_20260928.mp4"
+    },
+    {
+      "message_id": 14772,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14772_20260928.mp4",
+      "new_path": "F:\\魔镜摄影\\20\\jiepairewu_14772_20260928.mp4"
+    },
+    {
+      "message_id": 14771,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14771_20260928.mp4",
+      "new_path": "F:\\魔镜摄影\\20\\jiepairewu_14771_20260928.mp4"
+    },
+    {
+      "message_id": 14770,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14770_20260928.mp4",
+      "new_path": "F:\\魔镜摄影\\20\\jiepairewu_14770_20260928.mp4"
+    },
+    {
+      "message_id": 14769,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14769_20260928.mp4",
+      "new_path": "F:\\魔镜摄影\\20\\jiepairewu_14769_20260928.mp4"
+    },
+    {
+      "message_id": 14544,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14544_20260905.mp4",
+      "new_path": "F:\\魔镜摄影\\17\\jiepairewu_14544_20260905.mp4"
+    },
+    {
+      "message_id": 14543,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14543_20260905.mp4",
+      "new_path": "F:\\魔镜摄影\\17\\jiepairewu_14543_20260905.mp4"
+    },
+    {
+      "message_id": 14532,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14532_20260905.mp4",
+      "new_path": "F:\\魔镜摄影\\15\\jiepairewu_14532_20260905.mp4"
+    },
+    {
+      "message_id": 14531,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14531_20260905.mp4",
+      "new_path": "F:\\魔镜摄影\\15\\jiepairewu_14531_20260905.mp4"
+    },
+    {
+      "message_id": 14530,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14530_20260905.mp4",
+      "new_path": "F:\\魔镜摄影\\15\\jiepairewu_14530_20260905.mp4"
+    },
+    {
+      "message_id": 14529,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14529_20260905.mp4",
+      "new_path": "F:\\魔镜摄影\\15\\jiepairewu_14529_20260905.mp4"
+    },
+    {
+      "message_id": 14528,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14528_20260905.mp4",
+      "new_path": "F:\\魔镜摄影\\15\\jiepairewu_14528_20260905.mp4"
+    },
+    {
+      "message_id": 14527,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14527_20260831.mp4",
+      "new_path": "F:\\魔镜摄影\\16\\jiepairewu_14527_20260831.mp4"
+    },
+    {
+      "message_id": 14526,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14526_20260831.mp4",
+      "new_path": "F:\\魔镜摄影\\16\\jiepairewu_14526_20260831.mp4"
+    },
+    {
+      "message_id": 14525,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14525_20260831.mp4",
+      "new_path": "F:\\魔镜摄影\\16\\jiepairewu_14525_20260831.mp4"
+    },
+    {
+      "message_id": 14524,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14524_20260831.mp4",
+      "new_path": "F:\\魔镜摄影\\16\\jiepairewu_14524_20260831.mp4"
+    },
+    {
+      "message_id": 14523,
+      "old_path": "E:\\TelegramBatchDownloader\\downloads\\jiepairewu\\videos\\jiepairewu_14523_20260831.mp4",
+      "new_path": "F:\\魔镜摄影\\16\\jiepairewu_14523_20260831.mp4"
+    }
+  ],
+  "at": "2026-10-30T20:26:42.359766+08:00",
+  "media_files_modified": false
+}

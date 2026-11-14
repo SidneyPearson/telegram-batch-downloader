@@ -1,0 +1,75 @@
+test_click_has_immediate_busy_feedback_and_cancel_button (tests.test_auth.GuiAuthTests.test_click_has_immediate_busy_feedback_and_cancel_button) ... ok
+test_connection_failure_is_shown_above_tabs_and_in_auth_page (tests.test_auth.GuiAuthTests.test_connection_failure_is_shown_above_tabs_and_in_auth_page) ... ok
+test_invalid_api_is_visible_before_any_connection_attempt (tests.test_auth.GuiAuthTests.test_invalid_api_is_visible_before_any_connection_attempt) ... ok
+test_log_remains_visible_at_small_and_large_window_sizes (tests.test_auth.GuiAuthTests.test_log_remains_visible_at_small_and_large_window_sizes) ... ok
+test_ready_country_code_validation_two_factor_and_login (tests.test_auth.GuiAuthTests.test_ready_country_code_validation_two_factor_and_login) ... ok
+test_connection_ready_is_distinct_from_account_authorized (tests.test_auth.WorkerAuthTests.test_connection_ready_is_distinct_from_account_authorized) ... ok
+test_connection_timeout_is_visible_and_disables_code_requests (tests.test_auth.WorkerAuthTests.test_connection_timeout_is_visible_and_disables_code_requests) ... ok
+test_error_feedback_never_echoes_exception_arguments (tests.test_auth.WorkerAuthTests.test_error_feedback_never_echoes_exception_arguments) ... ok
+test_user_can_cancel_pending_connection_and_retry (tests.test_auth.WorkerAuthTests.test_user_can_cancel_pending_connection_and_retry) ... ok
+test_cancel_scan_keeps_discovered_records (tests.test_core.EngineTests.test_cancel_scan_keeps_discovered_records) ... ok
+test_complete_exact_length_digest_and_disk_before_success (tests.test_core.EngineTests.test_complete_exact_length_digest_and_disk_before_success) ... ok
+test_corrupted_prefix_restarts_instead_of_appending (tests.test_core.EngineTests.test_corrupted_prefix_restarts_instead_of_appending) ... ok
+test_denied_once_other_tasks_continue (tests.test_core.EngineTests.test_denied_once_other_tasks_continue) ... ok
+test_disk_full_pauses_rest_of_queue (tests.test_core.EngineTests.test_disk_full_pauses_rest_of_queue) ... ok
+test_expired_login_pauses_and_can_resume_after_reconnect (tests.test_core.EngineTests.test_expired_login_pauses_and_can_resume_after_reconnect) ... ok
+test_export_includes_errors_no_account_secrets (tests.test_core.EngineTests.test_export_includes_errors_no_account_secrets) ... ok
+test_failed_sqlite_completion_never_reports_success (tests.test_core.EngineTests.test_failed_sqlite_completion_never_reports_success) ... ok
+test_large_stream_has_bounded_python_memory (tests.test_core.EngineTests.test_large_stream_has_bounded_python_memory) ... Executing <Task finished name='Task-78' coro=<Engine.execute() done, defined at E:\Telegram-Batch-Downloader-Local\tmd\engine.py:154> result=None created at C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\tasks.py:420> took 0.172 seconds
+ok
+test_network_failure_is_retried_not_disk_failure (tests.test_core.EngineTests.test_network_failure_is_retried_not_disk_failure) ... ok
+test_output_directory_change_restarts_without_deleting_old_part (tests.test_core.EngineTests.test_output_directory_change_restarts_without_deleting_old_part) ... ok
+test_oversized_body_rejected_without_retry (tests.test_core.EngineTests.test_oversized_body_rejected_without_retry) ... ok
+test_oversized_part_preserved_no_publish (tests.test_core.EngineTests.test_oversized_part_preserved_no_publish) ... ok
+test_part_hardlink_cannot_truncate_unrelated_file (tests.test_core.EngineTests.test_part_hardlink_cannot_truncate_unrelated_file) ... ok
+test_pause_resume_committed_checkpoint (tests.test_core.EngineTests.test_pause_resume_committed_checkpoint) ... ok
+test_retry_limit_and_manual_retry (tests.test_core.EngineTests.test_retry_limit_and_manual_retry) ... ok
+test_scan_date_limit_and_truthful_scope (tests.test_core.EngineTests.test_scan_date_limit_and_truthful_scope) ... ok
+test_scan_dedup_completed_record_and_missing_file_requeue (tests.test_core.EngineTests.test_scan_dedup_completed_record_and_missing_file_requeue) ... ok
+test_server_wait_not_shortened_by_resume (tests.test_core.EngineTests.test_server_wait_not_shortened_by_resume) ... ok
+test_short_body_never_completed (tests.test_core.EngineTests.test_short_body_never_completed) ... ok
+test_short_disk_writes_are_fully_awaited (tests.test_core.EngineTests.test_short_disk_writes_are_fully_awaited) ... ok
+test_shorter_part_than_checkpoint_restarts (tests.test_core.EngineTests.test_shorter_part_than_checkpoint_restarts) ... ok
+test_uncommitted_tail_is_truncated (tests.test_core.EngineTests.test_uncommitted_tail_is_truncated) ... ok
+test_video_serial_images_bounded_parallel (tests.test_core.EngineTests.test_video_serial_images_bounded_parallel) ... ok
+test_channel_links_no_autojoin (tests.test_core.ModelSecurityTests.test_channel_links_no_autojoin) ... ok
+test_dates_in_beijing_and_inclusive_end (tests.test_core.ModelSecurityTests.test_dates_in_beijing_and_inclusive_end) ... ok
+test_dpapi_profile_roundtrip_no_plaintext (tests.test_core.ModelSecurityTests.test_dpapi_profile_roundtrip_no_plaintext) ... ok
+test_identity_and_filename (tests.test_core.ModelSecurityTests.test_identity_and_filename) ... ok
+test_metadata_scope (tests.test_core.ModelSecurityTests.test_metadata_scope) ... ok
+test_path_escape_rejected (tests.test_core.ModelSecurityTests.test_path_escape_rejected) ... ok
+test_proxy_validation (tests.test_core.ModelSecurityTests.test_proxy_validation) ... ok
+test_publish_preserves_existing_file (tests.test_core.ModelSecurityTests.test_publish_preserves_existing_file) ... ok
+test_windows_names_and_unicode_length (tests.test_core.ModelSecurityTests.test_windows_names_and_unicode_length) ... ok
+test_persist_dedup_and_recover_interruption (tests.test_core.StorageTests.test_persist_dedup_and_recover_interruption) ... ok
+test_demo_buttons_queue_pause_resume_and_layout (tests.test_gui.GuiTests.test_demo_buttons_queue_pause_resume_and_layout) ... ok
+test_all_downloads_share_two_network_slots (tests.test_pipeline.PipelineTests.test_all_downloads_share_two_network_slots) ... ok
+test_closing_stream_cancels_prefetched_work_and_releases_readers (tests.test_pipeline.PipelineTests.test_closing_stream_cancels_prefetched_work_and_releases_readers) ... ok
+test_large_prefetch_does_not_buffer_the_file (tests.test_pipeline.PipelineTests.test_large_prefetch_does_not_buffer_the_file) ... Executing <Task finished name='Task-230' coro=<PipelineTests.test_large_prefetch_does_not_buffer_the_file() done, defined at E:\Telegram-Batch-Downloader-Local\tests\test_pipeline.py:88> result=None created at C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\asyncio\runners.py:100> took 0.110 seconds
+ok
+test_later_flood_wait_stops_before_requesting_replacement (tests.test_pipeline.PipelineTests.test_later_flood_wait_stops_before_requesting_replacement) ... ok
+test_out_of_order_responses_are_yielded_in_exact_offset_order (tests.test_pipeline.PipelineTests.test_out_of_order_responses_are_yielded_in_exact_offset_order) ... ok
+test_real_telethon_iterator_with_mocked_rpc_preserves_ranges (tests.test_pipeline.PipelineTests.test_real_telethon_iterator_with_mocked_rpc_preserves_ranges) ... ok
+test_resume_with_real_transport_pipeline_preserves_full_file_hash (tests.test_pipeline.PipelineTests.test_resume_with_real_transport_pipeline_preserves_full_file_hash) ... ok
+test_uninitialized_telethon_iterator_can_be_closed_after_cancel (tests.test_pipeline.PipelineTests.test_uninitialized_telethon_iterator_can_be_closed_after_cancel) ... ok
+test_wrong_chunk_length_cannot_be_yielded (tests.test_pipeline.PipelineTests.test_wrong_chunk_length_cannot_be_yielded) ... ok
+test_dense_arrivals_use_recent_rate_after_throughput_changes (tests.test_pipeline.RateTests.test_dense_arrivals_use_recent_rate_after_throughput_changes) ... ok
+test_five_second_chunks_do_not_show_zero_after_two_seconds (tests.test_pipeline.RateTests.test_five_second_chunks_do_not_show_zero_after_two_seconds) ... ok
+test_genuine_inactivity_goes_to_zero (tests.test_pipeline.RateTests.test_genuine_inactivity_goes_to_zero) ... ok
+test_rate_window_excludes_old_bytes_and_samples_stay_bounded (tests.test_pipeline.RateTests.test_rate_window_excludes_old_bytes_and_samples_stay_bounded) ... ok
+test_code_request_deadline_is_finite (tests.test_transport.TransportTests.test_code_request_deadline_is_finite) ... ok
+test_connect_deadline_also_covers_authorization_probe (tests.test_transport.TransportTests.test_connect_deadline_also_covers_authorization_probe) ... ok
+test_download_uses_message_aligned_offset_and_closes_iterator (tests.test_transport.TransportTests.test_download_uses_message_aligned_offset_and_closes_iterator) ... ok
+test_history_filter_limit_date_and_peer (tests.test_transport.TransportTests.test_history_filter_limit_date_and_peer) ... ok
+test_missing_country_prefix_is_rejected_before_request (tests.test_transport.TransportTests.test_missing_country_prefix_is_rejected_before_request) ... ok
+test_normal_local_login_and_encrypted_session_only (tests.test_transport.TransportTests.test_normal_local_login_and_encrypted_session_only) ... ok
+test_permission_and_temporary_error_classification (tests.test_transport.TransportTests.test_permission_and_temporary_error_classification) ... ok
+test_real_telethon_video_message_compatibility (tests.test_transport.TransportTests.test_real_telethon_video_message_compatibility) ... ok
+test_source_revision_and_size_checked_before_resume (tests.test_transport.TransportTests.test_source_revision_and_size_checked_before_resume) ... ok
+test_two_factor_flow_does_not_persist_password (tests.test_transport.TransportTests.test_two_factor_flow_does_not_persist_password) ... ok
+test_shutdown_cancels_scan_and_closes_database_thread (tests.test_transport.WorkerLifecycleTests.test_shutdown_cancels_scan_and_closes_database_thread) ... ok
+
+----------------------------------------------------------------------
+Ran 68 tests in 19.681s
+
+OK

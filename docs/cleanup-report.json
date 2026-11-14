@@ -1,0 +1,76 @@
+{
+  "At": "2026-10-25T21:10:35.6920008+08:00",
+  "Items": [
+    {
+      "Path": "E:\\Telegram-Batch-Downloader-Local-v0.1.0-checksums.json",
+      "Result": "Sent to Recycle Bin",
+      "Bytes": 648
+    },
+    {
+      "Path": "E:\\Telegram-Batch-Downloader-Local-v0.1.0-Source.zip",
+      "Result": "Sent to Recycle Bin",
+      "Bytes": 98050
+    },
+    {
+      "Path": "E:\\Telegram-Batch-Downloader-Local-v0.1.0-Windows-x64.zip",
+      "Result": "Sent to Recycle Bin",
+      "Bytes": 17278200
+    },
+    {
+      "Path": "E:\\Telegram-Media-Downloader-Batch-v1.212.1.zip",
+      "Result": "Sent to Recycle Bin",
+      "Bytes": 121160
+    },
+    {
+      "Path": "E:\\Telegram-Media-Downloader-Batch-v1.212.2.zip",
+      "Result": "Sent to Recycle Bin",
+      "Bytes": 125807
+    },
+    {
+      "Path": "E:\\Telegram-Batch-Downloader-Local\\TelegramBatchDownloader.spec",
+      "Result": "Sent to Recycle Bin",
+      "Bytes": 858
+    },
+    {
+      "Path": "E:\\Telegram-Batch-Downloader-Local\\docs\\auth-regression-output.txt",
+      "Result": "Sent to Recycle Bin",
+      "Bytes": 652
+    },
+    {
+      "Path": "E:\\Telegram-Batch-Downloader-Local\\docs\\pipeline-regression-output.txt",
+      "Result": "Sent to Recycle Bin",
+      "Bytes": 3567
+    },
+    {
+      "Path": "E:\\Telegram-Batch-Downloader-Local\\build",
+      "Result": "Sent to Recycle Bin",
+      "Bytes": 36651129
+    },
+    {
+      "Path": "E:\\Telegram-Batch-Downloader-Local\\qa",
+      "Result": "Sent to Recycle Bin",
+      "Bytes": 312388
+    },
+    {
+      "Path": "E:\\Telegram-Batch-Downloader-Local\\dist\\TelegramBatchDownloader",
+      "Result": "Sent to Recycle Bin",
+      "Bytes": 38669162
+    },
+    {
+      "Path": "E:\\Telegram-Batch-Downloader-Local\\__pycache__",
+      "Result": "Sent to Recycle Bin",
+      "Bytes": 64433
+    },
+    {
+      "Path": "E:\\Telegram-Batch-Downloader-Local\\tmd\\__pycache__",
+      "Result": "Sent to Recycle Bin",
+      "Bytes": 85154
+    },
+    {
+      "Path": "E:\\Telegram-Batch-Downloader-Local\\tests\\__pycache__",
+      "Result": "Sent to Recycle Bin",
+      "Bytes": 129894
+    }
+  ],
+  "TotalBytes": 93541102
+}
