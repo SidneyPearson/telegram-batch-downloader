@@ -9,3 +9,4 @@ dist/
 *.spec
 instance.lock
 *.part
+assets/icon.icns

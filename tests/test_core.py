@@ -1,4 +1,4 @@
-import asyncio, errno, hashlib, json, os, sqlite3, tempfile, time, tracemalloc, unittest
+import asyncio, errno, hashlib, json, os, sqlite3, sys, tempfile, time, tracemalloc, unittest
 from pathlib import Path
 from unittest.mock import patch
 from tmd.model import BLOCK, Fault, Task, channel_input, parse_date, safe_name
@@ -31,7 +31,7 @@ class ModelSecurityTests(unittest.TestCase):
         self.assertEqual(parse_proxy('socks5://127.0.0.1:1080')[1:3],('127.0.0.1',1080))
         for text in ('ftp://127.0.0.1:80','http://user:pass@127.0.0.1:80','http://127.0.0.1:90000','127.0.0.1'):
             with self.assertRaises(Fault):parse_proxy(text)
-    @unittest.skipUnless(os.name=='nt','Windows DPAPI')
+    @unittest.skipUnless(os.name=='nt' or sys.platform=='darwin','Windows DPAPI / macOS Keychain')
     def test_dpapi_profile_roundtrip_no_plaintext(self):
         with tempfile.TemporaryDirectory() as temp:
             profile=Profile(temp);before=profile.fingerprint(123456)
@@ -44,6 +44,18 @@ class ModelSecurityTests(unittest.TestCase):
             self.assertEqual(restored.fingerprint(123456),before)
             self.assertNotEqual(restored.fingerprint(123457),before)
             self.assertEqual(protect(protect(b'roundtrip'),True),b'roundtrip')
+    def test_flood_premium_wait_is_retryable(self):
+        from telethon import errors
+        from tmd.transport import fault
+        issue=fault(errors.FloodPremiumWaitError(request=None,capture=120))
+        self.assertEqual((issue.code,issue.retryable,issue.wait),("FLOOD_WAIT",True,120))
+        self.assertIn("Premium",issue.message)
+    def test_available_space_helper(self):
+        from tmd.engine import available_space
+        with tempfile.TemporaryDirectory() as temp:
+            self.assertGreater(available_space(temp),0)
+        with patch('shutil.disk_usage',side_effect=OSError(errno.EIO,'probe failed')):
+            self.assertEqual(available_space('/tmp'),-1)
     def test_metadata_scope(self):
         item=message();item.noforwards=True
         self.assertIsNotNone(metadata(item,'account',-1,'channel'))
@@ -66,6 +78,15 @@ class ModelSecurityTests(unittest.TestCase):
             final=publish(part,target)
             self.assertEqual(target.read_bytes(),b'existing');self.assertEqual(final.read_bytes(),b'new')
             self.assertEqual(final.name,'video (1).mp4')
+    def test_publish_without_hardlink_support(self):
+        # exFAT/FAT32 reject os.link; the checked rename fallback must still avoid overwriting.
+        with tempfile.TemporaryDirectory() as temp:
+            target=Path(temp)/'video.mp4';target.write_bytes(b'existing')
+            part=Path(temp)/'.part';part.write_bytes(b'new')
+            with patch('tmd.engine.os.link',side_effect=OSError(errno.ENOTSUP,'Operation not supported')):
+                final=publish(part,target)
+            self.assertEqual(target.read_bytes(),b'existing');self.assertEqual(final.read_bytes(),b'new')
+            self.assertEqual(final.name,'video (1).mp4');self.assertFalse(part.exists())
 
 class StorageTests(unittest.TestCase):
     def test_persist_dedup_and_recover_interruption(self):

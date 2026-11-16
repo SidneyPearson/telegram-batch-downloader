@@ -1,15 +1,18 @@
-"""Windows DPAPI. No plaintext session, API hash, phone, OTP or 2FA persistence."""
+"""Local secret storage: Windows DPAPI on Windows, macOS Keychain on macOS.
+No plaintext session, API hash, phone, OTP or 2FA persistence."""
 from __future__ import annotations
-import base64, ctypes, json, os, secrets
+import base64, ctypes, json, os, secrets, subprocess, sys
 from ctypes import wintypes
 from pathlib import Path
 from .model import Fault
 
+KEYCHAIN_SERVICE = "TelegramBatchDownloader"
+KEYCHAIN_PREFIX = "kc-"
+
 class Blob(ctypes.Structure):
     _fields_ = [("cbData", wintypes.DWORD), ("pbData", ctypes.POINTER(ctypes.c_ubyte))]
 
-def protect(data: bytes, decrypt=False):
-    if os.name != "nt": raise Fault("PLATFORM","此便携版使用 Windows DPAPI，仅支持 Windows")
+def _windows_protect(data: bytes, decrypt=False):
     buffer = ctypes.create_string_buffer(data)
     incoming = Blob(len(data), ctypes.cast(buffer,ctypes.POINTER(ctypes.c_ubyte))); outgoing = Blob()
     crypt = ctypes.windll.crypt32; kernel = ctypes.windll.kernel32
@@ -23,6 +26,32 @@ def protect(data: bytes, decrypt=False):
     finally:
         kernel.LocalFree.argtypes=[ctypes.c_void_p];kernel.LocalFree.restype=ctypes.c_void_p
         kernel.LocalFree(ctypes.cast(outgoing.pbData,ctypes.c_void_p))
+
+def _keychain(arguments):
+    try: return subprocess.run(["/usr/bin/security", *arguments], capture_output=True, text=True, timeout=5)
+    except (OSError, subprocess.SubprocessError):
+        raise Fault("KEYCHAIN","无法访问 macOS 钥匙串；请检查系统钥匙串是否可用后重试") from None
+
+def _mac_protect(data: bytes, decrypt=False):
+    # Secrets live in the login Keychain; profile.json only keeps the random item name.
+    if not decrypt:
+        token = KEYCHAIN_PREFIX + secrets.token_hex(24)
+        encoded = base64.b64encode(data).decode()
+        result = _keychain(["add-generic-password","-U","-s",KEYCHAIN_SERVICE,"-a",token,"-w",encoded])
+        if result.returncode: raise Fault("KEYCHAIN","无法写入 macOS 钥匙串；请在系统提示中允许本程序保存登录信息")
+        return token.encode()
+    try: token = bytes(data).decode("utf8")
+    except UnicodeDecodeError: raise Fault("KEYCHAIN","本机保存的登录信息格式无效；请在连接账号页重新登录") from None
+    if not token.startswith(KEYCHAIN_PREFIX): raise Fault("KEYCHAIN","本机保存的登录信息不属于 macOS 钥匙串；请在连接账号页重新登录")
+    result = _keychain(["find-generic-password","-s",KEYCHAIN_SERVICE,"-a",token,"-w"])
+    if result.returncode: raise Fault("KEYCHAIN","钥匙串中没有保存的登录信息（可能已被删除）；请在连接账号页重新登录")
+    try: return base64.b64decode(result.stdout.strip(), validate=True)
+    except ValueError: raise Fault("KEYCHAIN","钥匙串中的登录信息无法解码；请在连接账号页重新登录") from None
+
+def protect(data: bytes, decrypt=False):
+    if os.name == "nt": return _windows_protect(data, decrypt)
+    if sys.platform == "darwin": return _mac_protect(data, decrypt)
+    raise Fault("PLATFORM","当前系统不支持本机的加密保存；仅支持 Windows 与 macOS")
 
 class Profile:
     def __init__(self, directory):
@@ -48,8 +77,7 @@ class Profile:
         import hmac,hashlib
         return hmac.new(bytes.fromhex(self.data["salt"]),str(user_id).encode(),hashlib.sha256).hexdigest()[:24]
 
-def system_proxy():
-    if os.name != "nt": return ""
+def _windows_proxy():
     try:
         import winreg
         with winreg.OpenKey(winreg.HKEY_CURRENT_USER,r"Software\Microsoft\Windows\CurrentVersion\Internet Settings") as key:
@@ -62,6 +90,26 @@ def system_proxy():
             return f"{scheme}://{value}" if value and "@" not in value else ""
         return ("http://"+server) if server and "@" not in server else ""
     except OSError: return ""
+
+def _mac_proxy():
+    # scutil only reports manually configured proxies; TUN/PAC setups stay undetected.
+    try: result = subprocess.run(["/usr/bin/scutil","--proxy"], capture_output=True, text=True, timeout=5)
+    except (OSError, subprocess.SubprocessError): return ""
+    values={}
+    for line in result.stdout.splitlines():
+        key,separator,value=line.partition(":")
+        if separator: values[key.strip()]=value.strip()
+    if values.get("SOCKSEnable")=="1" and values.get("SOCKSProxy") and values.get("SOCKSPort"):
+        return f"socks5://{values['SOCKSProxy']}:{values['SOCKSPort']}"
+    for prefix in ("HTTP","HTTPS"):
+        if values.get(f"{prefix}Enable")=="1" and values.get(f"{prefix}Proxy") and values.get(f"{prefix}Port"):
+            return f"http://{values[f'{prefix}Proxy']}:{values[f'{prefix}Port']}"
+    return ""
+
+def system_proxy():
+    if os.name == "nt": return _windows_proxy()
+    if sys.platform == "darwin": return _mac_proxy()
+    return ""
 
 def parse_proxy(text):
     if not text.strip(): return None

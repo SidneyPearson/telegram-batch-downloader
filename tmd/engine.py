@@ -1,5 +1,5 @@
 from __future__ import annotations
-import asyncio, hashlib, os, time, threading
+import asyncio, errno, hashlib, os, time, threading
 from collections import deque
 from pathlib import Path
 from .model import BLOCK, Fault, Paused, safe_name
@@ -30,13 +30,29 @@ def checked_path(base,path):
     if not path.is_relative_to(base):raise Fault("PATH","保存路径超出用户选择目录")
     return path
 
+DISK_RESERVE=256*1024*1024
+
+def available_space(path):
+    # Returns free bytes, or -1 when the path cannot be inspected.
+    from shutil import disk_usage
+    current=Path(path).expanduser()
+    while not current.exists() and current!=current.parent:current=current.parent
+    try:return disk_usage(current).free
+    except OSError:return -1
+
 def publish(part,desired):
-    # Windows rename refuses an existing destination: no silent overwrite.
+    # Never overwrite an existing destination. Hard links are atomic on POSIX filesystems,
+    # but exFAT/FAT32 and some network shares reject them, so fall back to a checked rename.
     for index in range(10000):
         candidate=desired if not index else desired.with_name(f"{desired.stem} ({index}){desired.suffix}")
         try:
             if os.name=="nt":os.rename(part,candidate)
-            else:os.link(part,candidate);os.unlink(part)
+            else:
+                try:os.link(part,candidate);os.unlink(part)
+                except OSError as error:
+                    if error.errno not in (errno.ENOTSUP,errno.EOPNOTSUPP,errno.EPERM,errno.EXDEV,errno.EMLINK):raise
+                    if candidate.exists():raise FileExistsError(candidate)
+                    os.rename(part,candidate)
             return candidate
         except FileExistsError:continue
     raise Fault("COLLISION","同名文件过多，请选择新的保存目录")
@@ -50,7 +66,8 @@ class Engine:
         self.idle=asyncio.Event();self.idle.set();self.network_halt=False;self.scan_job=None
     def emit(self,force=False):
         now=time.monotonic()
-        if not force and now-self._last_emit<.2:return
+        # 0.35 s keeps long queues responsive without repainting hundreds of rows too often.
+        if not force and now-self._last_emit<.35:return
         self._last_emit=now
         summary=self.store.summary(self.account,self.peer) if self.account else {}
         tasks=[t.dump() for t in self.store.rows(self.account,self.peer,limit=200)] if self.account else []
@@ -163,6 +180,9 @@ class Engine:
                 try:message=await asyncio.wait_for(self.transport.current(task),60)
                 except Exception as error:raise fault(error) from None
                 root=Path(task.output_root).resolve()
+                free=available_space(root)
+                if free>=0 and task.size-task.received+DISK_RESERVE>free:
+                    raise OSError(errno.ENOSPC,"空间不足")
                 folder=checked_path(root,root/safe_name(task.channel)/("videos" if task.kind=="video" else "photos"))
                 folder.mkdir(parents=True,exist_ok=True)
                 part=folder/("."+task.basename()+"."+task.key[:12]+".part")
@@ -217,6 +237,8 @@ class Engine:
                                     last_time=now;last_bytes=task.received
                                 if now-last_store>=1 and (task.received%BLOCK==0 or task.received==task.size):
                                     self.checkpoint(file,task,digest);last_store=now
+                                    free=available_space(root)
+                                    if 0<=free<DISK_RESERVE:raise OSError(errno.ENOSPC,"磁盘空间即将用尽")
                                 self.emit()
                         finally:
                             try:await stream.aclose()
@@ -235,8 +257,10 @@ class Engine:
                 task.received=task.checkpoint_bytes
                 self.store.put(task);return
             except OSError as error:
-                code="DISK_FULL" if getattr(error,"errno",None) in (28,112) else "DISK_IO"
-                task.status="failed";task.error_code=code;task.error="磁盘写入或文件操作失败；已有片段保留"
+                full=getattr(error,"errno",None) in (errno.ENOSPC,28,112)
+                code="DISK_FULL" if full else "DISK_IO"
+                task.status="failed";task.error_code=code
+                task.error="磁盘空间不足，队列已暂停；清理或更换保存目录后点“开始 / 继续”" if full else "磁盘写入或文件操作失败；已有片段保留"
                 self.store.error(task,code,task.error);self.store.put(task)
                 # A disk failure usually affects every pending file. Pause the queue.
                 self.request_pause();return

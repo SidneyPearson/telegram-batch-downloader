@@ -1,6 +1,6 @@
 # Telegram 本地批量下载器 v0.1.2
 
-面向 Windows 10/11 x64 的独立本地工具。通过自己的 Telegram API 应用与账号正常登录，扫描频道/群组中当前账号可以访问的图片、视频消息，建立队列并分段写入磁盘。**无需打开 Telegram 网页，也不需要逐个打开视频。** 软件免费，不使用付费下载服务。
+面向 Windows 10/11 x64 与 macOS 的独立本地工具。通过自己的 Telegram API 应用与账号正常登录，扫描频道/群组中当前账号可以访问的图片、视频消息，建立队列并分段写入磁盘。**无需打开 Telegram 网页，也不需要逐个打开视频。** 软件免费，不使用付费下载服务。
 
 这是用户选择的“第二种方案”。原来的 Tampermonkey 下载脚本和单文件下载功能不需要改动；两者独立运行。本程序不负责安装油猴脚本。
 
@@ -65,7 +65,7 @@
 
 程序目录需要可写。数据保存在 EXE 旁的 `state/`：
 
-- `profile.json`：API ID、保存目录、代理及使用 **Windows 当前用户 DPAPI 加密**的 API Hash/登录会话。没有明文 `.session` 文件，不保存手机号、验证码或两步验证密码。
+- `profile.json`：API ID、保存目录、代理及使用 **Windows 当前用户 DPAPI（Windows）/ 登录钥匙串（macOS）加密**的 API Hash/登录会话。没有明文 `.session` 文件，不保存手机号、验证码或两步验证密码。
 - `tasks.sqlite3`：频道、消息 ID、文件名/路径、任务状态、校验值及错误记录。频道与文件名等元数据没有加密。账号只以带随机盐的本机指纹区分。
 
 下载直接发生在本机与 Telegram 之间，没有本工具的第三方转存、上传或遥测服务。DPAPI 保护的是磁盘上的秘密；正在运行的同一 Windows 用户进程仍可使用已解密会话。不要把整个 `state` 文件夹当作公开测试材料。换 Windows 用户或换电脑可能无法解密，届时在新的程序数据目录重新登录。
@@ -94,6 +94,33 @@ py -3.12 -m venv .venv
 ```
 
 也可以依次双击 `setup-source.cmd`、`launch-source.cmd`；运行测试用 `test.cmd`。依赖首次安装需要联网；程序运行没有付费依赖。
+
+macOS（源码运行）：
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements-runtime.lock.txt
+.venv/bin/python app.py
+```
+
+- 需要使用 **自带 Tk 的 Python**（python.org 官方安装包或 `brew install python-tk`），否则启动会报 `No module named '_tkinter'`。
+- API Hash 与登录会话保存在登录钥匙串（Keychain），`profile.json` 只有随机条目名，不含明文；首次保存由系统弹窗确认。
+- “读取系统代理”调用 `scutil --proxy`，只识别手动配置的 HTTP/SOCKS 代理，不识别 PAC 与 TUN。
+- 界面字体自动切换为苹方；单实例锁使用 `flock`。
+
+macOS 打包版（双击启动）：
+
+```bash
+bash scripts/build-macos.sh
+open dist/TelegramBatchDownloader.app
+```
+
+- 输出 `dist/TelegramBatchDownloader.app`，显示名“Telegram 批量下载器”，含自绘图标与菜单栏。
+- 打包版数据保存在 `~/Library/Application Support/TelegramBatchDownloader`。沿用源码版队列时，先退出程序，再执行：
+  `cp -R state "$HOME/Library/Application Support/TelegramBatchDownloader/"`
+- 首次打开如被 Gatekeeper 拦截，在 Finder 中右键应用选择“打开”。
+- 支持 `Command+Q` 退出、菜单栏复制/粘贴/全选、窗口大小与位置记忆。
+- 开始下载前会检查保存目录可用空间；磁盘接近写满时会自动暂停队列，不再等到写盘失败。
 
 离线演示（不需要账号，不连接 Telegram，生成的是模拟字节，不是可播放媒体）：
 

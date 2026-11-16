@@ -1,5 +1,5 @@
 from __future__ import annotations
-import asyncio, inspect
+import asyncio, inspect, sys
 from datetime import datetime, timezone
 from telethon import TelegramClient, errors, utils
 from telethon.sessions import StringSession
@@ -28,8 +28,11 @@ def validate_phone(phone):
 def fault(error):
     if isinstance(error,Fault): return error
     name=type(error).__name__
-    if name=="FloodWaitError":
-        seconds=int(getattr(error,"seconds",60));return Fault("FLOOD_WAIT",f"Telegram 要求等待 {seconds} 秒后再试",True,seconds)
+    if isinstance(error,errors.FloodError):
+        seconds=max(1,int(getattr(error,"seconds",60) or 60))
+        message="Telegram 要求等待 {} 秒后再试".format(seconds)
+        if name=="FloodPremiumWaitError":message="Telegram 对非 Premium 账号的批量下载有限流，需等待 {} 秒后再继续".format(seconds)
+        return Fault("FLOOD_WAIT",message,True,seconds)
     if name in {"FileReferenceExpiredError","FilerefUpgradeNeededError"}: return Fault("FILE_REFERENCE","文件引用过期，将重新获取当前消息",True)
     if name in {"AuthKeyUnregisteredError","SessionRevokedError","AuthKeyDuplicatedError","UserDeactivatedError","UserDeactivatedBanError"}:
         return Fault("AUTH_REQUIRED","登录已失效，请重新连接并登录")
@@ -66,7 +69,7 @@ class TelegramTransport:
         self.profile=profile;self.api_id,self.api_hash=validate_api(api_id,api_hash)
         self.client=TelegramClient(StringSession(profile.secret("session_cipher")),self.api_id,self.api_hash,
             proxy=parse_proxy(proxy),request_retries=1,connection_retries=2,retry_delay=1,
-            timeout=15,flood_sleep_threshold=0,receive_updates=False,device_model="Windows local downloader",app_version=__version__)
+            timeout=15,flood_sleep_threshold=0,receive_updates=False,device_model=("macOS" if sys.platform=="darwin" else "Windows")+" local downloader",app_version=__version__)
         self.account="";self.phone=None;self.code_hash=None;self.needs_password=False;self.peers={}
         self.download_slots=asyncio.Semaphore(2)
     async def connect(self):

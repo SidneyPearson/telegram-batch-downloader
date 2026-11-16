@@ -1,15 +1,17 @@
 from __future__ import annotations
-import argparse, asyncio, json, os, queue, sys, threading, time, tkinter as tk
+import argparse, asyncio, json, os, queue, re, sys, threading, time, tkinter as tk
 from tkinter import ttk, filedialog, messagebox
 from pathlib import Path
 from tmd.model import Fault, parse_date
 from tmd.secure import Profile, system_proxy, parse_proxy
 from tmd.storage import Storage
 from tmd.transport import TelegramTransport, fault, validate_api, validate_phone
-from tmd.engine import Engine
+from tmd.engine import Engine, available_space, DISK_RESERVE
 from tmd import __version__
 
 VERSION=__version__
+FONT_FAMILY="PingFang SC" if sys.platform=="darwin" else "Microsoft YaHei UI"
+SECRET_STORE="Windows DPAPI" if os.name=="nt" else "macOS 钥匙串" if sys.platform=="darwin" else "本机安全存储"
 AUTH_ACTIONS={"connect","send_code","login"}
 STATUS={"queued":"等待中","downloading":"下载中","completed":"已完成","failed":"失败","paused":"已暂停"}
 def size(value):
@@ -157,14 +159,16 @@ class Worker:
 class App:
     def __init__(self,root,base,demo=False):
         self.root=root;self.base=Path(base);self.demo=demo;self.events=queue.Queue()
-        self.worker=Worker(base,self.events,demo);self.snapshot={};self.busy=False;self.connected=demo;self.closing=False
+        self.window_file=self.base/"window.json";self.ui_signature=None;self._last_space_check=0
+        self.worker=Worker(base,self.events,demo);self.snapshot={};self.row_cache={};self.row_index={};self.busy=False;self.connected=demo;self.closing=False
         self.network_ready=demo;self.code_requested=False;self.auth_phase="authorized" if demo else "idle";self.cancelling=False
         self.root.title(f"Telegram 本地批量下载器 v{VERSION}"+(" · 离线演示" if demo else ""))
         self.root.geometry("1080x800");self.root.minsize(900,680);self.root.configure(bg="#eef3f8")
-        style=ttk.Style();style.theme_use("clam");style.configure(".",font=("Microsoft YaHei UI",10))
+        self.restore_geometry()
+        style=ttk.Style();style.theme_use("clam");style.configure(".",font=(FONT_FAMILY,10))
         style.configure("TFrame",background="#eef3f8");style.configure("TLabelframe",background="#eef3f8")
         style.configure("TLabelframe.Label",background="#eef3f8");style.configure("TLabel",background="#eef3f8")
-        style.configure("Header.TLabel",font=("Microsoft YaHei UI",19,"bold"),foreground="#173451")
+        style.configure("Header.TLabel",font=(FONT_FAMILY,19,"bold"),foreground="#173451")
         style.configure("Accent.TButton",foreground="white",background="#1686c8",padding=(12,7))
         style.map("Accent.TButton",background=[("disabled","#a9bfd0"),("active","#126caa")])
         style.configure("Treeview",rowheight=29,background="white",fieldbackground="white")
@@ -200,7 +204,7 @@ class App:
         self.auth_message=tk.StringVar(value="先点击连接；连接成功后，发送验证码按钮才会启用。")
         self.auth_notice=ttk.Label(auth,textvariable=self.auth_message,wraplength=760,foreground="#36546e")
         self.auth_notice.grid(row=7,column=0,columnspan=3,sticky="w",pady=(12,4))
-        ttk.Label(auth,text="验证码和两步验证密码只在本机输入，不保存。API Hash 与登录会话通过 Windows DPAPI 加密。\n独立程序不会读取浏览器 Cookie，也不会自动继承 Chrome 扩展代理。",wraplength=760,foreground="#536b80").grid(row=8,column=0,columnspan=3,sticky="w",pady=10)
+        ttk.Label(auth,text=f"验证码和两步验证密码只在本机输入，不保存。API Hash 与登录会话通过 {SECRET_STORE} 加密。\n独立程序不会读取浏览器 Cookie，也不会自动继承 Chrome 扩展代理。",wraplength=760,foreground="#536b80").grid(row=8,column=0,columnspan=3,sticky="w",pady=10)
         links=ttk.Frame(auth);links.grid(row=9,column=0,columnspan=3,sticky="w")
         ttk.Button(links,text="打开 Telegram 官方 API 配置页",command=self.open_api).pack(side="left")
         ttk.Button(links,text="打开安装与使用说明",command=self.open_readme).pack(side="left",padx=8)
@@ -235,9 +239,10 @@ class App:
             ("retry","重试失败",lambda:self.worker.submit(self.worker.retry)),("export","导出记录",self.export)]:
             self.add_button(controls,key,label,cmd,pack=True,accent=key=="start")
         self.stats=tk.StringVar(value="图片 0    视频 0    等待 0    成功 0    失败 0")
-        ttk.Label(download,textvariable=self.stats,font=("Microsoft YaHei UI",11,"bold")).pack(anchor="w")
+        ttk.Label(download,textvariable=self.stats,font=(FONT_FAMILY,11,"bold")).pack(anchor="w")
         self.speed=tk.StringVar(value="0 B/s");self.scope=tk.StringVar(value="先扫描指定范围；不会把检索数量当作频道媒体总数")
         ttk.Label(download,textvariable=self.speed).pack(anchor="w",pady=(5,0))
+        self.disk=tk.StringVar(value="");ttk.Label(download,textvariable=self.disk,foreground="#536b80").pack(anchor="w")
         self.progress=ttk.Progressbar(download,maximum=100);self.progress.pack(fill="x",pady=7)
         ttk.Label(download,textvariable=self.scope,wraplength=970,foreground="#536b80").pack(anchor="w",pady=(0,8))
         columns=("name","type","status","progress","error")
@@ -248,25 +253,79 @@ class App:
         scrollbar=ttk.Scrollbar(frame,orient="vertical",command=self.tree.yview);self.tree.configure(yscrollcommand=scrollbar.set)
         self.tree.pack(side="left",fill="both",expand=True);scrollbar.pack(side="right",fill="y")
         ttk.Label(download,text="显示最近/优先 200 项；已有片段优先续传。暂停/失败会保留 .part，数量可超过并发数；失败项需点“重试失败”，服务器拒绝访问的任务不重试。",wraplength=980,foreground="#536b80").pack(anchor="w",pady=(7,0))
-        self.log=tk.Text(main,height=3,wrap="word",font=("Microsoft YaHei UI",9),bg="#f7f9fc",fg="#36546e",relief="flat",state="disabled")
+        self.log=tk.Text(main,height=3,wrap="word",font=(FONT_FAMILY,9),bg="#f7f9fc",fg="#36546e",relief="flat",state="disabled")
         self.log.pack(side="bottom",fill="x",pady=(6,0),before=self.book);self.log_lines=0
         if demo:self.book.select(download)
+        self.build_menu()
         self.root.protocol("WM_DELETE_WINDOW",self.close);self.root.after(150,self.poll)
+        if sys.platform=="darwin":
+            # Tk windows can start behind other apps; an inactive first click is not delivered.
+            self.root.lift();self.root.focus_force();self.root.after(300,self.root.focus_force)
     def add_button(self,parent,key,label,cmd,row=None,column=None,pack=False,accent=False):
         button=ttk.Button(parent,text=label,command=cmd,style="Accent.TButton" if accent else "TButton")
         if pack:button.pack(side="left",padx=(0,7))
         else:button.grid(row=row,column=column,padx=(10,0),pady=3,sticky="w")
         self.buttons[key]=button;return button
+    def restore_geometry(self):
+        try:value=json.loads(self.window_file.read_text("utf8")).get("geometry","")
+        except (OSError,ValueError):return
+        match=re.fullmatch(r"(\d+)x(\d+)(?:\+(-?\d+)\+(-?\d+))?",str(value).strip())
+        if not match:return
+        width,height=int(match.group(1)),int(match.group(2))
+        sw,sh=self.root.winfo_screenwidth(),self.root.winfo_screenheight()
+        width=min(max(width,900),sw);height=min(max(height,680),sh)
+        if match.group(3) is None:self.root.geometry(f"{width}x{height}")
+        else:
+            x=max(0,min(int(match.group(3)),sw-200));y=max(0,min(int(match.group(4)),sh-200))
+            self.root.geometry(f"{width}x{height}+{x}+{y}")
+    def save_geometry(self):
+        try:self.window_file.write_text(json.dumps({"geometry":self.root.geometry()}),encoding="utf8")
+        except OSError:pass
+    def build_menu(self):
+        # Native Aqua menu bar; accelerators are display hints, bindings do the work.
+        if sys.platform!="darwin":return
+        menubar=tk.Menu(self.root)
+        app_menu=tk.Menu(menubar,name="apple",tearoff=False)
+        app_menu.add_command(label="关于 Telegram 本地批量下载器",command=self.about)
+        app_menu.add_separator()
+        app_menu.add_command(label="退出",accelerator="Command+Q",command=self.close)
+        menubar.add_cascade(menu=app_menu)
+        edit=tk.Menu(menubar,tearoff=False)
+        for label,event,key in [("撤销","<<Undo>>","Command+Z"),("重做","<<Redo>>","Command+Shift+Z"),("剪切","<<Cut>>","Command+X"),
+                                ("复制","<<Copy>>","Command+C"),("粘贴","<<Paste>>","Command+V"),("全选","<<SelectAll>>","Command+A")]:
+            edit.add_command(label=label,accelerator=key,command=lambda value=event:self.menu_event(value))
+        menubar.add_cascade(label="编辑",menu=edit)
+        self.root.configure(menu=menubar)
+        self.root.createcommand("tk::mac::Quit",self.close)
+        self.root.createcommand("tk::mac::ReopenApplication",self.reopen)
+        self.root.bind_all("<Command-q>",lambda event:self.close())
+    def menu_event(self,event):
+        widget=self.root.focus_get()
+        if widget:
+            try:widget.event_generate(event)
+            except tk.TclError:pass
+    def about(self):
+        messagebox.showinfo("关于",f"Telegram 本地批量下载器 v{VERSION}\n正常 API 登录、直接读取消息附件；登录会话通过 {SECRET_STORE} 加密保存。")
+    def reopen(self):
+        self.root.deiconify();self.root.lift();self.root.focus_force()
+    def refresh_space(self):
+        folder=self.folder.get().strip()
+        if not folder:return
+        free=available_space(folder)
+        self.disk.set(f"保存目录可用空间 {size(free)}" if free>=0 else "无法读取保存目录的可用空间")
     def open_api(self):
         import webbrowser
         webbrowser.open("https://my.telegram.org")
     def open_readme(self):
-        origin=Path(sys.executable).parent if getattr(sys,"frozen",False) else Path(__file__).resolve().parent
-        try:text=(origin/"README.md").read_text(encoding="utf8")
-        except OSError:self.append("未找到 README.md；请保留便携包内的说明文件");return
+        candidates=[Path(getattr(sys,"_MEIPASS",Path(sys.executable).parent))] if getattr(sys,"frozen",False) else [Path(__file__).resolve().parent]
+        candidates.append(Path(__file__).resolve().parent)
+        for origin in candidates:
+            try:text=(origin/"README.md").read_text(encoding="utf8");break
+            except OSError:continue
+        else:self.append("未找到 README.md；请保留程序包内的说明文件");return
         window=tk.Toplevel(self.root);window.title("安装与使用说明");window.geometry("900x650")
         frame=ttk.Frame(window,padding=12);frame.pack(fill="both",expand=True)
-        content=tk.Text(frame,wrap="word",font=("Microsoft YaHei UI",10),padx=10,pady=10)
+        content=tk.Text(frame,wrap="word",font=(FONT_FAMILY,10),padx=10,pady=10)
         scroll=ttk.Scrollbar(frame,orient="vertical",command=content.yview);content.configure(yscrollcommand=scroll.set)
         content.pack(side="left",fill="both",expand=True);scroll.pack(side="right",fill="y")
         content.insert("1.0",text);content.configure(state="disabled")
@@ -337,6 +396,13 @@ class App:
             number=int(self.concurrency.get())
             if not 1<=number<=3:raise ValueError()
         except ValueError:self.append("并发数应为 1–3");return
+        summary=self.snapshot.get("summary",{})
+        remaining=max(0,summary.get("size",0)-summary.get("received",0))
+        free=available_space(self.folder.get().strip() or str(self.base))
+        if remaining and free>=0 and remaining+DISK_RESERVE>free:
+            message=(f"保存目录空间不足：还需约 {size(remaining)}，当前可用 {size(free)}，"
+                     f"程序会预留 {size(DISK_RESERVE)} 余量。请清理磁盘或更换保存目录后再开始。")
+            self.append(message);messagebox.showwarning("空间不足",message);return
         self.worker.submit(self.worker.start,number)
     def export(self):
         path=filedialog.asksaveasfilename(title="导出本地任务记录",defaultextension=".json",initialfile="telegram-download-records.json")
@@ -357,12 +423,22 @@ class App:
             values=(Path(task["final_path"]).name if task["final_path"] else f"{task['channel']}_{task['message_id']}",
                     "视频" if task["kind"]=="video" else "图片",STATUS.get(task["status"],task["status"]),
                     percent+" · "+size(task["size"]),f"[{task['error_code']}] {task['error']}" if task["error_code"] else task["error"])
-            if key in existing:self.tree.item(key,values=values);existing.remove(key)
-            else:self.tree.insert("","end",iid=key,values=values)
-            self.tree.move(key,"",index)
-        for key in existing:self.tree.delete(key)
+            if key in existing:
+                # Only touch changed rows; rewriting 200 rows every tick makes clicks sluggish.
+                if self.row_cache.get(key)!=values:self.tree.item(key,values=values);self.row_cache[key]=values
+                existing.remove(key)
+            else:
+                self.tree.insert("","end",iid=key,values=values);self.row_cache[key]=values
+            if self.row_index.get(key)!=index:self.tree.move(key,"",index);self.row_index[key]=index
+        for key in existing:
+            self.tree.delete(key);self.row_cache.pop(key,None);self.row_index.pop(key,None)
     def update_buttons(self):
         running=bool(self.snapshot.get("running"));scanning=bool(self.snapshot.get("scanning"))
+        summary=self.snapshot.get("summary",{})
+        signature=(self.busy,running,scanning,self.connected,self.network_ready,self.code_requested,self.cancelling,self.auth_phase,
+                   summary.get("queued",0),summary.get("paused",0),bool(self.snapshot.get("tasks")),self.demo)
+        if signature==self.ui_signature:return
+        self.ui_signature=signature
         for key,button in self.buttons.items():
             enable=not self.busy and not running and not scanning
             if key in ("scan","dialogs"):enable=enable and self.connected
@@ -399,13 +475,15 @@ class App:
                     label=f"{item['name']} ({'@'+item['username'] if item['username'] else item['id']})"
                     self.dialog_map[label]="@"+item["username"] if item["username"] else str(item["id"])
                 self.channel_box["values"]=list(self.dialog_map)
+        now=time.monotonic()
+        if now-self._last_space_check>=5:self._last_space_check=now;self.refresh_space()
         self.update_buttons()
         if not self.closing:self.root.after(150,self.poll)
     def close(self):
         if self.closing:return
         if self.snapshot.get("running") or self.snapshot.get("scanning"):
             if not messagebox.askyesno("保留片段并退出","下载或扫描仍在运行，是否暂停、保留本地片段后退出？"):return
-        self.closing=True;self.connection.set("正在关闭连接并保存任务记录…")
+        self.closing=True;self.save_geometry();self.connection.set("正在关闭连接并保存任务记录…")
         self.worker.pause()
         future=asyncio.run_coroutine_threadsafe(self.worker.shutdown(),self.worker.loop)
         def finish():
@@ -414,19 +492,37 @@ class App:
             else:self.root.after(100,finish)
         self.root.after(100,finish)
 
+def acquire_lock(base):
+    # A lock prevents two processes from concurrently writing this app's DB/session.
+    lock=(base/"instance.lock").open("a+b")
+    try:
+        if os.name=="nt":
+            import msvcrt
+            lock.seek(0)
+            if lock.read(1)==b"":lock.write(b"0");lock.flush()
+            lock.seek(0);msvcrt.locking(lock.fileno(),msvcrt.LK_NBLCK,1)
+        else:
+            import fcntl
+            fcntl.flock(lock.fileno(),fcntl.LOCK_EX|fcntl.LOCK_NB)
+        return lock
+    except OSError:
+        lock.close();return None
+
+def default_base():
+    if getattr(sys,"frozen",False):
+        # A packaged .app may be read-only; keep writable data in Application Support.
+        if sys.platform=="darwin":return Path.home()/"Library"/"Application Support"/"TelegramBatchDownloader"
+        return Path(sys.executable).parent
+    return Path(__file__).resolve().parent
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument("--demo",action="store_true");parser.add_argument("--data-dir")
     args=parser.parse_args()
-    base=Path(args.data_dir).resolve() if args.data_dir else (Path(sys.executable).parent if getattr(sys,"frozen",False) else Path(__file__).resolve().parent)
+    base=Path(args.data_dir).resolve() if args.data_dir else default_base()
     base.mkdir(parents=True,exist_ok=True)
     root=tk.Tk()
-    try:
-        # A lock prevents two processes from concurrently writing this app's DB/session.
-        import msvcrt
-        lock=(base/"instance.lock").open("a+b");lock.seek(0)
-        if lock.read(1)==b"":lock.write(b"0");lock.flush()
-        lock.seek(0);msvcrt.locking(lock.fileno(),msvcrt.LK_NBLCK,1)
-    except OSError:
+    lock=acquire_lock(base)
+    if lock is None:
         root.withdraw();messagebox.showerror("无法打开数据目录","另一实例可能正在运行，或程序所在目录不可写。请使用可写目录并只打开一个实例。");root.destroy();return
     try:App(root,base,args.demo)
     except Exception as error:
